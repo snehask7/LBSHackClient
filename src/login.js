@@ -113,9 +113,11 @@ const Login = props => {
         setSpinner(false)
         event.preventDefault();
         console.table({ Email, Password });
+        console.log(`${process.env.REACT_APP_API}/login`);
         axios
             .post(`${process.env.REACT_APP_API}/login`, { Email, Password })
             .then(response => {
+                console.log(response)
                 if (response.data !== 0) {
                     Cookies.set("ID", response.data);
                     fetchDetails();
