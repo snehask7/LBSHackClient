@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 import { SectionTilesProps } from '../../utils/SectionProps';
 import SectionHeader from './partials/SectionHeader';
-
 const propTypes = {
   ...SectionTilesProps.types
 }
@@ -44,11 +43,15 @@ const Testimonial = ({
   );
 
   const sectionHeader = {
-    title: 'Customer testimonials',
-    paragraph: 'Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis lectus nulla at volutpat diam ut venenatis tellus—in ornare.'
+    title: 'Our Partners',
+  };
+
+  const sectionHeader2 = {
+    title: 'Testimonials',
   };
 
   return (
+    <>
     <section
       {...props}
       className={outerClasses}
@@ -56,6 +59,17 @@ const Testimonial = ({
       <div className="container">
         <div className={innerClasses}>
           <SectionHeader data={sectionHeader} className="center-content" />
+
+        </div>
+      </div>
+    </section>
+    <section
+      {...props}
+      className={outerClasses}
+    >
+      <div className="container">
+        <div className={innerClasses}>
+          <SectionHeader data={sectionHeader2} className="center-content" />
           <div className={tilesClasses}>
 
             <div className="tiles-item reveal-from-right" data-reveal-delay="200">
@@ -113,6 +127,8 @@ const Testimonial = ({
         </div>
       </div>
     </section>
+    </>
+    
   );
 }
 
