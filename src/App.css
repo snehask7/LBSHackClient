@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;900&family=Open+Sans:wght@600&family=Raleway:wght@600&display=swap');
+
+
+.btn-login{
+    background-color:  #D589FF;
+    color: white
+}
+.btn-xxl{
+    width: 19rem
+}
+
+.tableheading{
+    background-color: #E8E8E8;
+}
+
+.tableborder
+{
+   border: 2px solid black;
+   border-style: double;
+}
+
+.navBarText{
+    font-size: 1em;
+    color: white;
+}
+
+.form-control{
+    font-size: 1.1em;
+}
+
+.btn{
+    font-size: 1.2em;   
+}
+.btnsmall{
+    font-size: 1.2em;   
+    width: 10%
+}
+
+.viewthead{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.viewtbody{
+    font-size: 1.3em;
+}
+
+
+.cardheading{
+    font-size: 1.4em;
+}
+
+.cardbody{
+    font-size: 1.3em;
+}
+
+.familydetails{
+    font-size: 1.3em
+}
+
+.editPage{
+    font-size: 1em;
+}
+
+.manditory{
+    color: red;
+    content:"*" ;
+}
+
+.topBorder{
+    border-top: 2px solid black;
+}
+
+.greenBorder{
+    border: 2px solid green;
+}
+
+.heading{
+    text-decoration: bold;
+    font-size: 35px;
+    
+}
+ 
+
+  @media all  {
+    .Login {
+        background-color:  white;
+        margin-top:140px ;
+        justify-content: center;
+      padding: 60px 0;
+      width: 28em;
+    }
+  
+    .Login form {
+
+      margin: 0 auto;
+      max-width: 320px;
+
+    }
+    .voucher{
+        width: 50%
+    }
+    
+  }
+
+  @media (max-width: 400px) {
+    .heading{
+        text-decoration: bold;
+        font-size: 30px;
+        
+    }
+     
+    .Login {
+        margin-top:140px ;
+        width: 15em;
+      padding: 30px 0;
+      color: white;
+    }
+  
+    .Login form {
+        
+      margin: 0 auto;
+      max-width: 200px;
+      color:black;
+
+    }
+    .dataTable{
+        width: 80%
+    }
+  }
+
+  .centerItems{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .react-datepicker__input-container input {
+    display: block;
+    width: 100% !important;
+
+}
+
+.border-all
+{
+ border: black solid 1px !important;
+}
+.border-left
+{
+ border-left: black solid 1px !important;
+}
+
+.border-right
+{
+ border-right: black solid 1px !important;
+}
+
+.border-bottom
+{
+ border-bottom: black solid 1px !important;
+}
+
+.border-top
+{
+ border-top: black solid 1px !important;
+}
+.Amount{
+  text-align: right;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+@media print {
+    @page {
+      size: portrait;
+    }
+    body * {
+      visibility: hidden;
+    }
+    .section-to-print, .section-to-print * {
+      visibility: visible;
+    }
+    .section-to-print {
+      position: relative;
+    }
+    .expense{
+        width:80em;
+        left:2em;
+    }
+    .donation{
+        width:70em;
+        left:-5em;
+    }
+  }
