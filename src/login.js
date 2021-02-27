@@ -22,7 +22,7 @@ const Login = props => {
         },
         avatar: {
             margin: theme.spacing(1),
-            backgroundColor: theme.palette.secondary.main,
+            backgroundColor: "theme.palette.secondary.main",
         },
         form: {
             width: "100%", // Fix IE 11 issue.
@@ -141,7 +141,7 @@ const Login = props => {
 
 
     return (
-        <body style={{ background: '#192841' }}>
+        <body style={{ background: '#00adb5' }}>
             <Container component="main" maxWidth="xs" >
                 <div className={classes.paper} style={{ marginTop: '10rem', height: '30rem', backgroundColor: 'white', padding: '3rem', borderRadius: '20px' }}>
                     <Avatar className={classes.avatar}>
@@ -186,7 +186,7 @@ const Login = props => {
                             <Button
                                 type="submit"
                                 variant="contained"
-                                color="primary"
+                                color="secondary"
                                 style={{ width: '60%', marginLeft: '20%' }}
                                 className={classes.submit}
                                 onClick={handleSubmit}
