@@ -113,11 +113,9 @@ const Login = props => {
         setSpinner(false)
         event.preventDefault();
         console.table({ Email, Password });
-        console.log(`${process.env.REACT_APP_API}/login`);
         axios
             .post(`${process.env.REACT_APP_API}/login`, { Email, Password })
             .then(response => {
-                console.log(response)
                 if (response.data !== 0) {
                     Cookies.set("ID", response.data);
                     fetchDetails();
@@ -154,7 +152,7 @@ const Login = props => {
                             variant="outlined"
                             margin="normal"
                             id="outlined"
-                            label={<h3>Email*</h3>}
+                            label={<span>Email*</span>}
                             onChange={handleChange}
                             type="text"
                             fullWidth
@@ -171,7 +169,7 @@ const Login = props => {
                             margin="normal"
                             fullWidth
                             name="password"
-                            label={<h3>Password*</h3>}
+                            label={<span>Password*</span>}
                             type="password"
                             id="password"
                             value={Password}

@@ -10,7 +10,7 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6,label {
+h1,h2,h4,h5,h6,label,span {
   color: #9CA9B3 !important;
   font-weight: 500;
   font-family: 'Fira Sans', sans-serif;
