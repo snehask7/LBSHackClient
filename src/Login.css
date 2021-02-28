@@ -14,7 +14,7 @@ span {
   font-weight: 900;
 }
 
-h1,h2,h4,h5,h6,label,.label-span {
+.sign-in-heading,.label-span {
   color: #393e46 !important;
   font-weight: 500;
   font-family: 'Fira Sans', sans-serif;

@@ -146,7 +146,7 @@ const Login = props => {
                     <Avatar className={classes.avatar}>
                         <LockOutlinedIcon />
                     </Avatar>
-                    <h1 >Sign In</h1>
+                    <h1 class="sign-in-heading">Sign In</h1>
 
                     <Form className={classes.form} onSubmit={handleSubmit}>
                         <TextField
