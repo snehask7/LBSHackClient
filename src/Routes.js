@@ -4,12 +4,14 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Login from './login';
 import Home from './views/Home';
+import Coupons from './views/Coupons'
 const Routes = props => {
         return (
             <BrowserRouter>
                 <Switch>
                     <Route path="/" exact component={Home} />
                     <Route path="/login" exact component={Login} />
+                    <Route path="/coupons" exact component={Coupons} />
 
                     {/* <Route path="/addReceipt" exact component={AddReceipt} />
                     <Route path="/viewReceipts" render={() => <ViewReceipts formatDate={formatDate} />} />

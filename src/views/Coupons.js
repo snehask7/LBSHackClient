@@ -1,0 +1,16 @@
+import React from 'react';
+// import sections
+import TopNav from '../components/sections/TopNav';
+import CouponDisplay from '../components/sections/CouponDisplay';
+
+const Home = () => {
+
+  return (
+    <>
+      <TopNav className="illustration-section-01" />
+      <CouponDisplay />
+        </>
+  );
+}
+
+export default Home;
