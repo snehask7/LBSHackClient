@@ -52,8 +52,8 @@ const Login = props => {
     }));
 
     const [state, setState] = useState({
-        Email: '',
-        Password: ''
+        Email: 'test@gmail.com',
+        Password: 'test$123'
     })
 
     const { Email, Password } = state;
@@ -101,7 +101,7 @@ const Login = props => {
                         <LockOutlinedIcon />
                     </Avatar>
                     <h1 class="sign-in-heading">Sign In</h1>
-
+                    <p style={{fontSize:'15px',color:'#838383'}}>Username: test@gmail.com, <br></br>Password: test$123</p>
                     <Form className={classes.form} onSubmit={handleSubmit}>
                         <TextField
                             variant="outlined"
@@ -112,7 +112,6 @@ const Login = props => {
                             type="text"
                             fullWidth
                             value={Email}
-
                             InputLabelProps={{
                                 shrink: true,
                                 fontSize: 30
@@ -142,7 +141,7 @@ const Login = props => {
                                 onClick={handleSubmit}
                             >
                                 Sign In
-            </Button>
+                            </Button>
                             <Spinner style={{ marginLeft: '2em', color: 'black' }} hidden={loginSpinner} animation="border" />
                         </div>
                     </Form>
