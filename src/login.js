@@ -9,6 +9,7 @@ import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
+import Background from './assets/images/background.png';
 import './Login.css';
 
 const Login = props => {
@@ -139,20 +140,20 @@ const Login = props => {
 
 
     return (
-        <body style={{ background: '#00adb5' }}>
+        <body style={{ backgroundImage: `url(${Background})` }}>
             <Container component="main" maxWidth="xs" >
                 <div className={classes.paper} style={{ marginTop: '10rem', height: '30rem', backgroundColor: 'white', padding: '3rem', borderRadius: '20px' }}>
                     <Avatar className={classes.avatar}>
                         <LockOutlinedIcon />
                     </Avatar>
-                    <h1 >Sign In</h1>
+                    <h1 class="sign-in-heading">Sign In</h1>
 
                     <Form className={classes.form} onSubmit={handleSubmit}>
                         <TextField
                             variant="outlined"
                             margin="normal"
                             id="outlined"
-                            label={<span>Email*</span>}
+                            label={<span class="label-span">Email*</span>}
                             onChange={handleChange}
                             type="text"
                             fullWidth
@@ -169,7 +170,7 @@ const Login = props => {
                             margin="normal"
                             fullWidth
                             name="password"
-                            label={<span>Password*</span>}
+                            label={<span class="label-span">Password*</span>}
                             type="password"
                             id="password"
                             value={Password}
@@ -184,7 +185,6 @@ const Login = props => {
                             <Button
                                 type="submit"
                                 variant="contained"
-                                color="secondary"
                                 style={{ width: '60%', marginLeft: '20%' }}
                                 className={classes.submit}
                                 onClick={handleSubmit}

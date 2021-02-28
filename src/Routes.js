@@ -6,6 +6,7 @@ import Login from './login';
 import Home from './views/Home';
 import Coupons from './views/Coupons'
 import AddCoupon from './components/sections/AddCoupon';
+import Dashboard from './views/Dashboard'
 const Routes = props => {
         return (
             <BrowserRouter>
@@ -14,6 +15,7 @@ const Routes = props => {
                     <Route path="/login" exact component={Login} />
                     <Route path="/coupons" exact component={Coupons} />
                     <Route path="/addCoupon" exact component={AddCoupon} />
+                    <Route path="/dashboard" exact component={Dashboard} />
 
                     {/* <Route path="/addReceipt" exact component={AddReceipt} />
                     <Route path="/viewReceipts" render={() => <ViewReceipts formatDate={formatDate} />} />
@@ -23,7 +25,7 @@ const Routes = props => {
                     <Route path="/searchReceipt" render={() => <SearchReceipt formatDate={formatDate} />} />x
                    */}
                 </Switch>
-            </BrowserRouter>
+            </BrowserRouter>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
         )
     }
 
