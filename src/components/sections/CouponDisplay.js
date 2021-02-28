@@ -2,10 +2,13 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
-import TopNav from './TopNav';
+import { useHistory } from 'react-router-dom';
 import classNames from 'classnames';
+import { Card, CardGroup, Col, Row, Button, Container } from 'react-bootstrap'
 import { SectionSplitProps } from '../../utils/SectionProps';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import '../../App.css'
 const ViewCoupons = ({ className,
   topOuterDivider,
   bottomOuterDivider,
@@ -33,6 +36,8 @@ const ViewCoupons = ({ className,
     className
   );
 
+  const history = useHistory();
+
   const innerClasses = classNames(
     'features-tiles-inner section-inner pt-0',
     topDivider && 'has-top-divider',
@@ -43,9 +48,31 @@ const ViewCoupons = ({ className,
     'tiles-wrap center-content',
     pushLeft && 'push-left'
   );
+  const [showHeader, setShowHeader] = useState([]);
 
+  const hover = (id) => {
+    const values = [...showHeader];
+    values[id] = true;
+    setShowHeader(values);
+  }
+
+  const noHover = (id) => {
+    const values = [...showHeader];
+    values[id] = false;
+    setShowHeader(values);
+  }
+
+  const deleteCoupon = (id) => {
+    axios
+      .delete(`${process.env.REACT_APP_API}/Coupon/${id}`)
+      .then(response => {
+        fetchCoupons()
+      })
+      .catch(error => alert('Error deleting coupon'));
+  }
   const fetchCoupons = () => {
-    var companyID = Cookies.get('companyID')
+    // var companyID = Cookies.get('companyID')
+    var companyID = "603a76c73920194fa3b53786"
     axios.get(`${process.env.REACT_APP_API}/coupon`, {
       params: {
         companyID
@@ -53,7 +80,12 @@ const ViewCoupons = ({ className,
     })
       .then(response => {
         console.log(response);
-
+        var hover = []
+        for (var i = 0; i < response.data.length; i++) {
+          hover.push(false);
+        }
+        setShowHeader(hover);
+        setCoupons(response.data)
       })
       .catch(err => alert('error fetching'));
   }
@@ -68,11 +100,52 @@ const ViewCoupons = ({ className,
         {...props}
         className={outerClasses}
       >
-        <div className="container">
-          <div className={innerClasses}>
-            <div className={tilesClasses}>
-            </div>
-          </div>
+        <div className="container"  >
+          <Button onClick={()=>{history.push('/addCoupon')}} variant="success" style={{ float: 'right', marginRight: '5em', fontSize: '17px' }}>+ Add Coupon</Button>
+          <br></br>
+          <CardGroup style={{display: 'flex', flexDirection: 'row',alignItems:'left',justifyContent:'left',marginLeft:'4em',marginTop:'2em'}}>
+
+            {
+              coupons.map((c, id) => {
+                console.log(c)
+                return (
+                  <Row>
+                    <Card style={{ width: '13rem', marginRight: '5em', border: 'dotted', marginBottom: '1em',float:'left',flex:1 }} onMouseEnter={e => {
+                      hover(id);
+                    }}
+                      onMouseLeave={e => {
+                        noHover(id)
+                      }}
+                    >
+                      {
+                        showHeader[id] ?
+                          <Card.Header style={{ textAlign: 'right', backgroundColor: '#00adb5' }}>
+                            <FontAwesomeIcon style={{ marginRight: '10px' }} size="xs-2" style={{ color: '#696969', marginRight: '10px' }} icon={faEdit} />
+                            <button onClick={() => deleteCoupon(c._id)} style={{ border: 'none', backgroundColor: '#00adb5' }}  ><FontAwesomeIcon size="xs-2" style={{ color: '#696969' }} icon={faTrash} />
+                            </button>
+                          </Card.Header>
+                          :
+                          null
+                      }
+
+                      <Card.Body style={{ textAlign: 'center' }}>
+                      <p style={{textAlign:'right'}}> x{c.NoCoupons}</p>
+                        <Card.Title style={{ textAlign: 'center', color: '#a9a9a9', fontFamily: 'Roboto Condensed', fontSize: '25px' }}>COUPON</Card.Title>
+                        <Card.Title className="mb-2 " style={{ fontFamily: 'Oswald', fontWeight: 'bold', fontSize: '45px', color: 'black' }}>{c.Description}</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted" style={{ fontFamily: 'Roboto Condensed', marginBottom: '-1em' }}><p style={{ fontSize: '20px' }}>{c.Name}</p><p style={{ fontSize: '15px', marginTop: '-1em' }}>Offer valid for {c.Validity}</p></Card.Subtitle>
+                        <b style={{ fontSize: '15px' }}>REQUIRES {c.Price} POINTS</b>
+                      </Card.Body>
+                    </Card>
+                  </Row>
+                )
+              })
+            }
+
+          </CardGroup>
+          <br></br>
+          <br></br>
+          <br></br>
+
         </div>
       </section>
     </>
