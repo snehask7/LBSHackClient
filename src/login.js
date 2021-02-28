@@ -9,6 +9,7 @@ import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
+import Background from './assets/images/background.png';
 import './Login.css';
 
 const Login = props => {
@@ -113,13 +114,11 @@ const Login = props => {
         setSpinner(false)
         event.preventDefault();
         console.table({ Email, Password });
-        console.log(`${process.env.REACT_APP_API}/login`);
         axios
             .post(`${process.env.REACT_APP_API}/login`, { Email, Password })
             .then(response => {
-                console.log(response)
                 if (response.data !== 0) {
-                    Cookies.set("ID", response.data);
+                    Cookies.set("companyID", response.data);
                     fetchDetails();
                     props.history.push({
                         pathname: `/dashboard`,
@@ -141,20 +140,20 @@ const Login = props => {
 
 
     return (
-        <body style={{ background: '#00adb5' }}>
+        <body style={{ backgroundImage: `url(${Background})` }}>
             <Container component="main" maxWidth="xs" >
                 <div className={classes.paper} style={{ marginTop: '10rem', height: '30rem', backgroundColor: 'white', padding: '3rem', borderRadius: '20px' }}>
                     <Avatar className={classes.avatar}>
                         <LockOutlinedIcon />
                     </Avatar>
-                    <h1 >Sign In</h1>
+                    <h1 class="sign-in-heading">Sign In</h1>
 
                     <Form className={classes.form} onSubmit={handleSubmit}>
                         <TextField
                             variant="outlined"
                             margin="normal"
                             id="outlined"
-                            label={<h3>Email*</h3>}
+                            label={<span class="label-span">Email*</span>}
                             onChange={handleChange}
                             type="text"
                             fullWidth
@@ -171,7 +170,7 @@ const Login = props => {
                             margin="normal"
                             fullWidth
                             name="password"
-                            label={<h3>Password*</h3>}
+                            label={<span class="label-span">Password*</span>}
                             type="password"
                             id="password"
                             value={Password}
@@ -186,7 +185,6 @@ const Login = props => {
                             <Button
                                 type="submit"
                                 variant="contained"
-                                color="secondary"
                                 style={{ width: '60%', marginLeft: '20%' }}
                                 className={classes.submit}
                                 onClick={handleSubmit}
