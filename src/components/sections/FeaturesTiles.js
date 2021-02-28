@@ -59,7 +59,7 @@ const FeaturesTiles = ({
         <div className={innerClasses}>
           <h2 style={{textAlign:"center"}}>Who Are We?</h2>
           <p>Tripity is an app that provides incentives to encourage people to use public transport. We endeavour to achieve excellence, innovation and performance in a sustainable manner. Our vision is to help us move one step closer towards achieving a sustainable world by prmoting lesser traffic to curb pollution. </p>
-          <h2 style={{textAlign:"center"}}>How To Use Tripity?</h2>
+          <h2 style={{textAlign:"center"}}>How It Works</h2>
           <p>Every time you decide to use the public transport, simply log on to the Tripity mobile app after you've boarded and scan the QR Code on your device at the scanner on the bus, train or metro. Its as simple as that! Points get added to your Tripity wallet each time you scan, giving you exciting opportunities to purchase coupons from our partners with the coins you've earned. If you get lucky the Tripity app displays a bonus question for you which you can asnwer to get, you guessed it, more points! Getting around has never been better before, so get the Tripity app today and reward yourselves for conserving the environment ech time you use the pulic transport!</p>      
 
           <h2 style={{textAlign:"center"}}>Why Tripity?</h2>
