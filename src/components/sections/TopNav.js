@@ -55,7 +55,7 @@ const TopNav = ({
     >
       <br></br>
               <img src={require('../../assets/images/logomain.png')} style={{ width: '10em',  marginLeft: '2em' }} />
-              <Button style={{ float: 'right',height:'3em',backgroundColor:'#00ADB5',marginRight:'2em',marginTop:'-5em'}}  > Logout</Button>
+              <Button style={{ float: 'right',height:'3em',backgroundColor:'#00ADB5',marginRight:'2em',marginTop:'-5em',height:'50px'}}  > Logout</Button>
       <div className="container-sm">
      
         <div className={innerClasses}>

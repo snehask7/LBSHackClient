@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './login';
 import Home from './views/Home';
 import Coupons from './views/Coupons'
+import AddCoupon from './components/sections/AddCoupon';
 import Dashboard from './views/Dashboard'
 const Routes = props => {
         return (
@@ -13,6 +14,7 @@ const Routes = props => {
                     <Route path="/" exact component={Home} />
                     <Route path="/login" exact component={Login} />
                     <Route path="/coupons" exact component={Coupons} />
+                    <Route path="/addCoupon" exact component={AddCoupon} />
                     <Route path="/dashboard" exact component={Dashboard} />
 
                     {/* <Route path="/addReceipt" exact component={AddReceipt} />
