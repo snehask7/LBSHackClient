@@ -1,5 +1,10 @@
 .features-tiles-item-image {
 	display: inline-flex;
 	border-radius: 50%;
-	background-color: get-color(primary, 3);
+	color: #00adb5;
+	background-color: transparent;
+}
+
+.features-tiles-item-image:hover {
+	color: #F3B340;
 }
