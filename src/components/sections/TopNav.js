@@ -47,16 +47,16 @@ const TopNav = ({
                 <Navbar.Brand > <img src={require('../../assets/images/mainlogo.JPG')} style={{ width: '8em', marginLeft: '15px', marginTop: '10px' }} />
                 </Navbar.Brand>
                 <Navbar.Toggle />
-                <h4 style={{ color: '#03e9f4' }}>
-                    <Link to="/dashboard">
+                <h4 style={{ marginLeft:'2em' }}>
+                    <Link to="/dashboard" style={{color:'#03e9f4',border:'double',padding:'10px'}}>
                         Home
                     </Link>
                     &nbsp;&nbsp; &nbsp;&nbsp;
-                    <Link to="/coupons">
+                    <Link to="/coupons" style={{color:'#03e9f4',border:'double',padding:'10px'}}>
                         View Coupons
                 </Link>
                 &nbsp;&nbsp; &nbsp;&nbsp;
-                    <Link to="/addCoupon">
+                    <Link to="/addCoupon" style={{color:'#03e9f4',border:'double',padding:'10px'}}>
                         Add Coupon
                 </Link>
                 </h4>

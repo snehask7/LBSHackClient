@@ -85,8 +85,6 @@ const ViewCoupons = ({ className,
 
   return (
     <>
-      <br></br>
-      <br />
       <div style={{ width: '80%', marginLeft: 'auto', marginRight: 'auto' }} >
         <br></br>
         <CardGroup style={{ display: 'flex', flexDirection: 'row', alignItems: 'left', justifyContent: 'left', marginTop: '2em', marginLeft: '10%' }}>
@@ -127,8 +125,9 @@ const ViewCoupons = ({ className,
           }
 
         </CardGroup>
-
-
+        <br></br>
+        <br></br>
+        <br></br>
       </div>
     </>
   );

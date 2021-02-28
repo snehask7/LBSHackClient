@@ -1,7 +1,3 @@
-body{
-    background-color: #222831;
-}
-
 .cta {
 
     .form-input {
@@ -13,7 +9,7 @@ body{
 .cta-inner {
 	padding-left: 16px;
 	padding-right: 16px;
-    background-color: #00adb5;
+    background-color: get-color(primary, 3);
 	background-image: url(../../../images/cta-illustration.svg);
 	background-repeat: no-repeat;
     background-size: cover;
@@ -35,9 +31,6 @@ body{
 	}
 }
 
-p{
-    text-align: center;
-}
 
 .login-box {
     position: absolute;
@@ -86,7 +79,8 @@ p{
     transition: .5s;
   }
 
-    .login-box form button {
+  
+  .login-box form button {
     position: relative;
     display: inline-block;
     border: none;
@@ -102,7 +96,15 @@ p{
     letter-spacing: 4px
   }
   
-
+  .login-box button:hover {
+    background: #03e9f4;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 100px #03e9f4;
+  }
+  
   .login-box button span {
     position: absolute;
     display: block;
