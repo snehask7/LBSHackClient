@@ -118,7 +118,7 @@ const Login = props => {
             .post(`${process.env.REACT_APP_API}/login`, { Email, Password })
             .then(response => {
                 if (response.data !== 0) {
-                    Cookies.set("ID", response.data);
+                    Cookies.set("companyID", response.data);
                     fetchDetails();
                     props.history.push({
                         pathname: `/dashboard`,

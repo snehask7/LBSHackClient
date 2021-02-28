@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <>
-      <TopNav className="illustration-section-01" />
+      <TopNav page="Home" />
       <CouponDisplay />
         </>
   );

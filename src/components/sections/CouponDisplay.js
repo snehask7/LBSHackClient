@@ -38,16 +38,6 @@ const ViewCoupons = ({ className,
 
   const history = useHistory();
 
-  const innerClasses = classNames(
-    'features-tiles-inner section-inner pt-0',
-    topDivider && 'has-top-divider',
-    bottomDivider && 'has-bottom-divider'
-  );
-
-  const tilesClasses = classNames(
-    'tiles-wrap center-content',
-    pushLeft && 'push-left'
-  );
   const [showHeader, setShowHeader] = useState([]);
 
   const hover = (id) => {
@@ -79,7 +69,6 @@ const ViewCoupons = ({ className,
       }
     })
       .then(response => {
-        console.log(response);
         var hover = []
         for (var i = 0; i < response.data.length; i++) {
           hover.push(false);
@@ -96,58 +85,51 @@ const ViewCoupons = ({ className,
 
   return (
     <>
-      <section
-        {...props}
-        className={outerClasses}
-      >
-        <div className="container"  >
-          <Button onClick={()=>{history.push('/addCoupon')}} variant="success" style={{ float: 'right', marginRight: '5em', fontSize: '17px' }}>+ Add Coupon</Button>
-          <br></br>
-          <CardGroup style={{display: 'flex', flexDirection: 'row',alignItems:'left',justifyContent:'left',marginLeft:'4em',marginTop:'2em'}}>
-
-            {
-              coupons.map((c, id) => {
-                console.log(c)
-                return (
-                  <Row>
-                    <Card style={{ width: '13rem', marginRight: '5em', border: 'dotted', marginBottom: '1em',float:'left',flex:1 }} onMouseEnter={e => {
-                      hover(id);
+      <br></br>
+      <br />
+      <div style={{ width: '80%', marginLeft: 'auto', marginRight: 'auto' }} >
+        <br></br>
+        <CardGroup style={{ display: 'flex', flexDirection: 'row', alignItems: 'left', justifyContent: 'left', marginTop: '2em', marginLeft: '10%' }}>
+          {
+            coupons.map((c, id) => {
+              return (
+                <Row>
+                  <Card style={{ width: '13rem', marginRight: '5em', border: 'dotted', marginBottom: '1em', float: 'left', flex: 1 }} onMouseEnter={e => {
+                    hover(id);
+                  }}
+                    onMouseLeave={e => {
+                      noHover(id)
                     }}
-                      onMouseLeave={e => {
-                        noHover(id)
-                      }}
-                    >
-                      {
-                        showHeader[id] ?
-                          <Card.Header style={{ textAlign: 'right', backgroundColor: '#00adb5' }}>
-                            <FontAwesomeIcon style={{ marginRight: '10px' }} size="xs-2" style={{ color: '#696969', marginRight: '10px' }} icon={faEdit} />
-                            <button onClick={() => deleteCoupon(c._id)} style={{ border: 'none', backgroundColor: '#00adb5' }}  ><FontAwesomeIcon size="xs-2" style={{ color: '#696969' }} icon={faTrash} />
-                            </button>
-                          </Card.Header>
-                          :
-                          null
-                      }
+                  >
+                    {
+                      showHeader[id] ?
+                        <Card.Header style={{ textAlign: 'right', backgroundColor: '#00adb5' }}>
+                          <button onClick={() => {history.push(`/coupon/${c._id}`)}} style={{ border: 'none', backgroundColor: '#00adb5' }}  ><FontAwesomeIcon size="xs-2" style={{ color: '#696969' }} icon={faEdit} />
+                          </button>
+                          <button onClick={() => deleteCoupon(c._id)} style={{ border: 'none', backgroundColor: '#00adb5' }}  ><FontAwesomeIcon size="xs-2" style={{ color: '#696969' }} icon={faTrash} />
+                          </button>
+                        </Card.Header>
+                        :
+                        null
+                    }
 
-                      <Card.Body style={{ textAlign: 'center' }}>
-                      <p style={{textAlign:'right'}}> x{c.NoCoupons}</p>
-                        <Card.Title style={{ textAlign: 'center', color: '#a9a9a9', fontFamily: 'Roboto Condensed', fontSize: '25px' }}>COUPON</Card.Title>
-                        <Card.Title className="mb-2 " style={{ fontFamily: 'Oswald', fontWeight: 'bold', fontSize: '45px', color: 'black' }}>{c.Description}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted" style={{ fontFamily: 'Roboto Condensed', marginBottom: '-1em' }}><p style={{ fontSize: '20px' }}>{c.Name}</p><p style={{ fontSize: '15px', marginTop: '-1em' }}>Offer valid for {c.Validity}</p></Card.Subtitle>
-                        <b style={{ fontSize: '15px' }}>REQUIRES {c.Price} POINTS</b>
-                      </Card.Body>
-                    </Card>
-                  </Row>
-                )
-              })
-            }
+                    <Card.Body style={{ textAlign: 'center' }}>
+                      <p style={{ textAlign: 'right' }}> x{c.NoCoupons}</p>
+                      <Card.Title style={{ textAlign: 'center', color: '#a9a9a9', fontFamily: 'Roboto Condensed', fontSize: '25px' }}>COUPON</Card.Title>
+                      <Card.Title className="mb-2 " style={{ fontFamily: 'Oswald', fontWeight: 'bold', fontSize: '45px', color: 'black' }}>{c.Description}</Card.Title>
+                      <Card.Subtitle className="mb-2 text-muted" style={{ fontFamily: 'Roboto Condensed', marginBottom: '-1em' }}><p style={{ fontSize: '20px' }}>{c.Name}</p><p style={{ fontSize: '15px', marginTop: '-1em' }}>Offer valid for {c.Validity}</p></Card.Subtitle>
+                      <b style={{ fontSize: '15px' }}>REQUIRES {c.Price} POINTS</b>
+                    </Card.Body>
+                  </Card>
+                </Row>
+              )
+            })
+          }
 
-          </CardGroup>
-          <br></br>
-          <br></br>
-          <br></br>
+        </CardGroup>
 
-        </div>
-      </section>
+
+      </div>
     </>
   );
 };

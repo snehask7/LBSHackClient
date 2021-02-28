@@ -1,70 +1,69 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
-import { Row, Col ,Button} from 'react-bootstrap'
+import { Row, Col, Button, Navbar } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+
 const propTypes = {
-  ...SectionProps.types
+    ...SectionProps.types
 }
 
 const defaultProps = {
-  ...SectionProps.defaults
+    ...SectionProps.defaults
 }
 
 const TopNav = ({
-  className,
-  topOuterDivider,
-  bottomOuterDivider,
-  topDivider,
-  bottomDivider,
-  hasBgColor,
-  invertColor,
-  ...props
+    className,
+    topOuterDivider,
+    bottomOuterDivider,
+    topDivider,
+    bottomDivider,
+    hasBgColor,
+    invertColor,
+    page,
+    ...props
 }) => {
 
-  const [videoModalActive, setVideomodalactive] = useState(false);
+    const outerClasses = classNames(
+        'hero section center-content',
+        topOuterDivider && 'has-top-divider',
+        bottomOuterDivider && 'has-bottom-divider',
+        hasBgColor && 'has-bg-color',
+        invertColor && 'invert-color',
+        className
+    );
 
-  const openModal = (e) => {
-    e.preventDefault();
-    setVideomodalactive(true);
-  }
+    const [videoModalActive, setVideomodalactive] = useState(false);
+    const history = useHistory();
 
-  const closeModal = (e) => {
-    e.preventDefault();
-    setVideomodalactive(false);
-  }
+    return (
+        <section
+            {...props}
+            className={outerClasses}
+        >
 
-  const outerClasses = classNames(
-    'hero section center-content',
-    topOuterDivider && 'has-top-divider',
-    bottomOuterDivider && 'has-bottom-divider',
-    hasBgColor && 'has-bg-color',
-    invertColor && 'invert-color',
-    className
-  );
-
-  const innerClasses = classNames(
-    'hero-inner section-inner',
-    topDivider && 'has-top-divider',
-    bottomDivider && 'has-bottom-divider'
-  );
-
-  return (
-    <section
-      {...props}
-      className={outerClasses}
-    >
-      <br></br>
-              <img src={require('../../assets/images/logomain.png')} style={{ width: '10em',  marginLeft: '2em' }} />
-              <Button style={{ float: 'right',height:'3em',backgroundColor:'#00ADB5',marginRight:'2em',marginTop:'-5em',height:'50px'}}  > Logout</Button>
-      <div className="container-sm">
-     
-        <div className={innerClasses}>
-           
-
-        </div>
-      </div>
-    </section>
-  );
+            <Navbar style={{ backgroundColor: '#222831' }}   >
+                <Navbar.Brand > <img src={require('../../assets/images/logomain.png')} style={{ width: '8em', marginLeft: '15px', marginTop: '10px' }} />
+                </Navbar.Brand>
+                <Navbar.Toggle />
+                <Link to="/dashboard">
+                    Home
+                    </Link>
+                <Link to="/coupons">
+                    View Coupons
+                </Link>
+                <Link to="/addCoupon">
+                    Add Coupon
+                </Link>
+                <Navbar.Collapse className="justify-content-end">
+                    <Navbar.Text>
+                        <Button style={{ float: 'right', marginTop: '-1em', height: '3em', backgroundColor: '#00ADB5', marginRight: '2em', height: '50px' }} onClick={() => { history.push('/') }} > Logout</Button>
+                    </Navbar.Text>
+                </Navbar.Collapse>
+            </Navbar>
+        </section>
+    );
 }
 
 TopNav.propTypes = propTypes;
