@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
 import '../../App.css';
+import { useHistory } from 'react-router-dom';
 
 import { Row, Col ,Button, Form} from 'react-bootstrap';
 
@@ -24,17 +25,7 @@ const Hero = ({
   ...props
 }) => {
 
-  const [videoModalActive, setVideomodalactive] = useState(false);
-
-  const openModal = (e) => {
-    e.preventDefault();
-    setVideomodalactive(true);
-  }
-
-  const closeModal = (e) => {
-    e.preventDefault();
-    setVideomodalactive(false);
-  }
+  const history = useHistory();
 
   const outerClasses = classNames(
     'hero section center-content',
@@ -60,7 +51,7 @@ const Hero = ({
               <img src={require('../../assets/images/mainlogo.JPG')} style={{ width: '7em',  marginLeft: '2em' }} />
               <Button style={{ float: 'right',height:'3em',backgroundColor:'#0f0f0f',marginRight:'22.5em',marginTop:'-3em', borderRadius:"2rem", border:"none", padding:"0 30px", fontSize:"1rem", fontFamily: "'Roboto Mono', monospace"}}  > <Row style={{ fontSize:"0.5rem"}}>DOWNLOAD ON THE</Row> <Row>App Store<span class="iconify" data-icon="ant-design:apple-filled" data-inline="false" style={{ marginLeft:'10px', fontSize:"1.3em"}}></span></Row></Button>
               <Button style={{ float: 'right',height:'3em',backgroundColor:'#0f0f0f',marginRight:'12em',marginTop:'-3em', borderRadius:"2rem", border:"none", padding:"0 30px", fontSize:"1rem", fontFamily: "'Roboto Mono', monospace"}}  > <Row style={{ fontSize:"0.5rem"}}>GET IT ON</Row> <Row>Google Play<span class="iconify" data-icon="logos-google-play-icon" data-inline="false" style={{ marginLeft:'10px', fontSize:"1em"}}></span></Row></Button>
-              <Button style={{ float: 'right',height:'3em',backgroundColor:'#00ADB5',marginRight:'2em',marginTop:'-3em', borderRadius:"2rem", border:"none", fontSize:"1rem", fontFamily: "'Roboto Mono', monospace"}}  > Company Login</Button>
+              <Button onClick={()=>{history.push('/login')}}style={{ float: 'right',height:'3em',backgroundColor:'#00ADB5',marginRight:'2em',marginTop:'-3em', borderRadius:"2rem", border:"none", fontSize:"1rem", fontFamily: "'Roboto Mono', monospace"}}  > Company Login</Button>
       <div className="container-sm">
         <div className={innerClasses}>
            

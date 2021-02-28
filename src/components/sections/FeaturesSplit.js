@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import { SectionSplitProps } from '../../utils/SectionProps';
-import SectionHeader from './partials/SectionHeader';
 import Image from '../elements/Image';
 
 const propTypes = {
@@ -49,8 +48,6 @@ const FeaturesSplit = ({
     alignTop && 'align-top'
   );
 
-
-
    return (
     <section
       {...props}
@@ -58,7 +55,7 @@ const FeaturesSplit = ({
     >
       <div className="container">
         <div className={innerClasses}>
-        <h2 style={{textAlign:"center"}}>Tripity Up-close</h2>
+        <h2 style={{textAlign:"center"}}>Tripity Up-Close</h2>
           <div className={splitClasses}>
 
             <div className="split-item">

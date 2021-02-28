@@ -59,49 +59,6 @@ const Login = props => {
     const { Email, Password } = state;
     const [loginSpinner, setSpinner] = useState(true)
 
-    useEffect(() => {
-        var DisplayName = Cookies.get("DisplayName");
-        if (DisplayName !== "")
-            window.location.reload()
-        Cookies.set("DisplayName", "");
-    }, [])
-
-    const fetchDetails = () => {
-        Cookies.set("DisplayName", "");
-        Cookies.set("TenantName", "");
-        Cookies.set("Email", "");
-        Cookies.set("Role", "");
-        Cookies.set("ShowReports", "");
-        Cookies.set("ShowImport", "");
-        var userID = Cookies.get("ID");
-        axios.get(`${process.env.REACT_APP_API}/getLogin`, {
-            params: {
-                userID
-            }
-        }
-        )
-            .then(response => {
-                const fetchName = response.data[0].DisplayName;
-                const fetchTenant = response.data[0].TenantName;
-                const fetchRole = response.data[0].Role
-                const Email = response.data[0].Email
-                var ShowReports = "True"
-                if (response.data[0].ShowReports)
-                    ShowReports = response.data[0].ShowReports
-                var ShowImport="True"
-                if (response.data[0].ShowImport)
-                    ShowImport = response.data[0].ShowImport
-                Cookies.set('DisplayName', fetchName)
-                Cookies.set('TenantName', fetchTenant)
-                Cookies.set('Email', Email)
-                Cookies.set('Role', fetchRole)
-                Cookies.set('ShowReports', ShowReports)
-                Cookies.set('ShowImport', ShowImport)
-                window.location.reload()
-
-            })
-            .catch(err => alert(err));
-    }
 
 
 
@@ -119,7 +76,6 @@ const Login = props => {
             .then(response => {
                 if (response.data !== 0) {
                     Cookies.set("companyID", response.data);
-                    fetchDetails();
                     props.history.push({
                         pathname: `/dashboard`,
                     });
@@ -128,9 +84,7 @@ const Login = props => {
                     alert('Invalid Credentials!'); 
                     setSpinner(true)
                     setState({...state,Password:''})
-
                 }
-
             })
             .catch(error => {
                 alert(error);
@@ -161,7 +115,6 @@ const Login = props => {
 
                             InputLabelProps={{
                                 shrink: true,
-                                // style: { color: '#fff' },
                                 fontSize: 30
                             }}
                             onChange={handleChange('Email')} />
@@ -176,7 +129,6 @@ const Login = props => {
                             value={Password}
                             InputLabelProps={{
                                 shrink: true,
-                                // style: { color: '#fff' },
                             }}
                             autoComplete="current-password"
                             onChange={handleChange('Password')}
