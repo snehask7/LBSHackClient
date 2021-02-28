@@ -46,25 +46,25 @@ const Hero = ({
     <section
       {...props}
       className={outerClasses}
-    >
+      style={{ backgroundColor: '#101316', paddingLeft:'0' }} >
       <br></br>
-              <img src={require('../../assets/images/mainlogo.JPG')} style={{ width: '7em',  marginLeft: '2em' }} />
-              <Button style={{ float: 'right',height:'3em',backgroundColor:'#0f0f0f',marginRight:'22.5em',marginTop:'-3em', borderRadius:"2rem", border:"none", padding:"0 30px", fontSize:"1rem", fontFamily: "'Roboto Mono', monospace"}}  > <Row style={{ fontSize:"0.5rem"}}>DOWNLOAD ON THE</Row> <Row>App Store<span class="iconify" data-icon="ant-design:apple-filled" data-inline="false" style={{ marginLeft:'10px', fontSize:"1.3em"}}></span></Row></Button>
-              <Button style={{ float: 'right',height:'3em',backgroundColor:'#0f0f0f',marginRight:'12em',marginTop:'-3em', borderRadius:"2rem", border:"none", padding:"0 30px", fontSize:"1rem", fontFamily: "'Roboto Mono', monospace"}}  > <Row style={{ fontSize:"0.5rem"}}>GET IT ON</Row> <Row>Google Play<span class="iconify" data-icon="logos-google-play-icon" data-inline="false" style={{ marginLeft:'10px', fontSize:"1em"}}></span></Row></Button>
+              <img src={require('../../assets/images/homelogo.png')} style={{ width: '7em',  marginLeft: '2em' }} />
+              <Button style={{ float: 'right',height:'3em',backgroundColor:'#222831',marginRight:'22.5em',marginTop:'-3em', borderRadius:"2rem", border:"none", padding:"0 30px", fontSize:"1rem", fontFamily: "'Roboto Mono', monospace"}}  > <Row style={{ fontSize:"0.5rem"}}>DOWNLOAD ON THE</Row> <Row>App Store<span class="iconify" data-icon="ant-design:apple-filled" data-inline="false" style={{ marginLeft:'10px', fontSize:"1.3em"}}></span></Row></Button>
+              <Button style={{ float: 'right',height:'3em',backgroundColor:'#222831',marginRight:'12em',marginTop:'-3em', borderRadius:"2rem", border:"none", padding:"0 30px", fontSize:"1rem", fontFamily: "'Roboto Mono', monospace"}}  > <Row style={{ fontSize:"0.5rem"}}>GET IT ON</Row> <Row>Google Play<span class="iconify" data-icon="logos-google-play-icon" data-inline="false" style={{ marginLeft:'10px', fontSize:"1em"}}></span></Row></Button>
               <Button onClick={()=>{history.push('/login')}}style={{ float: 'right',height:'3em',backgroundColor:'#00ADB5',marginRight:'2em',marginTop:'-3em', borderRadius:"2rem", border:"none", fontSize:"1rem", fontFamily: "'Roboto Mono', monospace"}}  > Company Login</Button>
       <div className="container-sm">
         <div className={innerClasses}>
            
-          <div className="hero-content">
+          <div className="hero-content" style={{ paddingLeft:'0'}}>
 
           
 
-            <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200" style={{ color: '#F3B340'}}>
+            <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200" style={{ color: '#F3B340', fontSize:'3.5rem'}}>
               Welcome to  <span style={{color: '#00ADB5'}}>Tripity</span>
             </h1>
 
-            <h2 style={{ color: '#F3B340', fontSize:"1.5em", fontWeight: "normal"}}>Go Sustainable, Earn Rewards.</h2>
-
+            <h2 style={{ color: '#F3B340', fontSize:"1.2em", fontWeight: "normal"}}>Go Sustainable, Earn Rewards.</h2>
+            <div class="line"></div> 
             <div className="container-xs" >
               <p className="m-0 mb-32 reveal-from-bottom" data-reveal-delay="400" >
               </p>
