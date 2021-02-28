@@ -10,8 +10,12 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
-h1,h2,h4,h5,h6,label,span {
-  color: #9CA9B3 !important;
+span {
+  font-weight: 900;
+}
+
+h1,h2,h4,h5,h6,label,.label-span {
+  color: #393e46 !important;
   font-weight: 500;
   font-family: 'Fira Sans', sans-serif;
 }
@@ -42,8 +46,6 @@ body, html, .App, #root, .auth-wrapper {
   transition: all .3s;
 }
 
-
-
 .auth-wrapper h3 {
   text-align: center;
   margin: 0;
@@ -62,4 +64,10 @@ body, html, .App, #root, .auth-wrapper {
   padding-top: 10px;
   color: #7f7d7d;
   margin: 0;
+}
+
+.MuiButton-contained {
+  background-color: #222831 !important;
+  color: #f3b340 !important;
+  font-size: 60px;
 }
